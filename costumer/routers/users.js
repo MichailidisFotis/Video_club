@@ -19,9 +19,13 @@ const connection = mysql.createConnection({
 
 const router = express.Router();
 
+router.post("/signup" , jsonParser , async(req , res)=>{
 
+})
 
-
+router.post("/login" , jsonParser , async(req , res)=>{
+  
+})
 
 
 export default router

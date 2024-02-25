@@ -30,7 +30,7 @@ const userSignup =  async (req , res)=>{
   var surname = req.body.surname;
   var email = req.body.email;
 
-  // //*check if all inputs are inserted
+   //*check if all inputs are inserted
   if (!email)
   return  res.status(400).send({ message: "Email is required", signup: false });
 
@@ -69,6 +69,7 @@ const userSignup =  async (req , res)=>{
       }
     );
   });
+
   if (userExists)
   return  res.status(400).send({ message: "Username already taken", signup: false });
 
@@ -125,9 +126,81 @@ const userSignup =  async (req , res)=>{
 }
 
 
+//*method to login
 const userLogin =  async (req ,res)=>{
 
-}
+
+    const username =  req.body.username
+    const password =  req.body.user_password
+
+
+    if(!username)
+      req.status(400).send({message:"Username is Required" , login:false})
+
+    if(!password)
+      req.status(400).send({message:"Password is Required" , login:false})
+
+
+    //*check if username exists
+    const userFound = await new Promise((resolve, reject) => {
+      connection.query("SELECT count(*) as number_of_users FROM users WHERE username =?" , username , (err, result)=>{
+          if (err) {
+            reject(err)
+          }
+          else
+            resolve(result[0].number_of_users)
+      })
+    })
+
+
+    if(!userFound)
+      return res.status(400).send({message:"Username not found" , login:false})
+
+    //*check if credentials are correct  
+    const correctCredentials  =  await new Promise((resolve, reject) => {
+      connection.query("SELECT count(*) as number_of_users FROM users where username = ? and user_password=?" , [username , md5(password)] ,
+      (err , result)=>{
+        if (err) 
+          reject(err)
+        else  
+          resolve(result[0].number_of_users)
+      })
+    })
+
+
+
+    if (!correctCredentials)
+        return res.status(400).send({message:"Credentials are wrong" , login:false})
+    
+
+    //*check if user is active
+    const userActive =  await new Promise((resolve, reject) => {
+      connection.query("SELECT *  FROM users WHERE username =? AND user_password =? AND active=1" ,
+       [username, md5(password)] , (err ,result)=>{
+          if (err)
+            reject(err)
+          else 
+            resolve(result)
+      })
+    })
+
+    if (userActive.length == 0)
+      return res.status(400).send({message:"Wait for activision" , login:false})
+    
+
+  
+      //*create session variables
+
+      req.session.username = userActive[0].username
+      req.session.user_id =  userActive[0].user_id
+      req.session.role_id =  userActive[0].role_id
+
+
+      res.status(200).send({message:"Login in" , login:true})
+
+
+
+  }
 
 
 export default {userSignup , userLogin}

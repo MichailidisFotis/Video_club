@@ -3,7 +3,7 @@ import session from "express-session"
 import { fileURLToPath } from 'url';
 import {dirname} from "path"
 import dotenv from "dotenv";
-import usersRouter from "./routers/users.js"
+import usersRouter from "./routers/users/users.js"
 
 
 
@@ -29,7 +29,6 @@ app.use(session({
 }));
 
 app.use(express.static(__dirname))
-
 
 
 

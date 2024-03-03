@@ -25,7 +25,7 @@
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
   />
 
-<link rel="stylesheet" href="style/style.css">
+<link rel="stylesheet" href="/style/style.css">
 
     <title>Document</title>
 </head>
@@ -33,7 +33,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
-        <a class="navbar-brand" href="/index.html">Video Club</a>
+        <a class="navbar-brand" href="/user/userIndex">Video Club</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -49,60 +49,54 @@
           class="collapse navbar-collapse justify-content-end"
           id="navbarNavDropdown"
         >
-          <ul class="navbar-nav" style="font-size: large">
+          <ul class="navbar-nav" style="font-size: medium; gap: 15px ;">
+            
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="/index.html"
-                >Login</a
+              
+              <a class="nav-link" aria-current="page" href="/user/userIndex">
+                <i class="fa-solid fa-house" ></i>    
+                </a
+              >
+            </li>
+            <a class="nav-link" aria-current="page" href="/user/userCard">
+              <i class="fa-solid fa-credit-card"></i> My Card    
+              </a
+            >
+          </li>
+            
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="/user/customerOrders"
+                ><i class="fa-solid fa-cart-shopping" ></i> My Orders</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="/signup.html">Sign Up</a>
+              <a class="nav-link"  aria-current="page" href="/user/notifications" 
+                ><i class="fa-solid fa-bell"></i> <h7 id="notifications number"> 0</h7></a
+              >
+            </li>
+
+
+            <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="/user/customerProfile"
+                  > <i class="fa-regular fa-user"></i>  My profile</a
+                >
+              </li>
+            <li style="cursor: default;" class="nav-item">
+              <a class="nav-link" id="logoutButton"><i class="fa-solid fa-right-from-bracket"></i> Sign Out</a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
-
-    <div id="message">
-      <h1 id="Response"></h1>
-    </div>
-    <div id="userForm">
-      <div id="registerForm">
-        <p id="label">Insert User Data</p>
-
-          
-          
-          <input type="text" placeholder="Firstname" id="firstname" required />
-
-          <input type="text" placeholder="Surname" id="surname" required />
-
-          <input type="text" placeholder="Username" id="username" required />
-
-          <input type="email" placeholder="Email" id="email" required />
+    
 
 
 
-          <input
-            type="password"
-            placeholder="Password"
-            id="password"
-            required
-          />
-
-          <input
-            type="password"
-            placeholder="Verify password"
-            id="verifyPassword"
-            required
-          />
-        <button id="submitButton">Sign up</button>
-      </div>
-    </div>
 
 
   </body>
 
-  <script src="client/signup.js"></script>
+  <script src="/clientRequests/signout.js"></script>
 
 
 </html>

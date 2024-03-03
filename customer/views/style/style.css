@@ -1,5 +1,8 @@
 
 
+
+
+
 @media (max-width: 992px) {
     .navbar .navbar-nav {
       display: inline-block;
@@ -17,7 +20,9 @@
     box-shadow: 3px 0px 0px ,0 4px 20px 0;
   }
 
-
+  body{
+    background-color: #c6c6c6;
+  }
 
 
   #userForm{
@@ -96,14 +101,14 @@
     color: rgb(255, 255, 255);
   }
   
-  
+/*   
   #loginForm button:hover{
     width: 235.2px;
-   /* border-color: rgb(48, 48, 48); */
+   
   }
-  
+   */
   #loginForm input:focus{
-    width: 300px;
+    width: 55%;
     /* border-color: rgb(48, 48, 48); */
     background-color: whitesmoke;
     color: black;
@@ -256,3 +261,6 @@
 #registerForm input:focus::placeholder{
   color: transparent;
 }
+
+
+

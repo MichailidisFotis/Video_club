@@ -108,7 +108,7 @@ const userSignup =  async (req , res)=>{
 
   
   await new Promise((resolve, reject) => {
-    connection.query(`INSERT INTO customers(customer_id, user_id, firstname, surname,photo_id,telephone,email)
+    connection.query(`INSERT INTO customers(customer_id, user_id, firstname, surname,customer _image_id,telephone,email)
     VALUES (?,?,?,?,?,?,?)` , [customer_id , user_id , firstname , surname , null , null , email] , (err , result)=>{
       if(err)
         reject(err)
@@ -134,11 +134,13 @@ const userLogin =  async (req ,res)=>{
     const password =  req.body.user_password
 
 
+    console.log(req.body)
+
     if(!username)
-      req.status(400).send({message:"Username is Required" , login:false})
+     return res.status(400).send({message:"Username is Required" , login:false})
 
     if(!password)
-      req.status(400).send({message:"Password is Required" , login:false})
+     return res.status(400).send({message:"Password is Required" , login:false})
 
 
     //*check if username exists
@@ -187,6 +189,15 @@ const userLogin =  async (req ,res)=>{
     if (userActive.length == 0)
       return res.status(400).send({message:"Wait for activision" , login:false})
     
+      const customer  =  await new Promise((resolve, reject) => {
+          connection.query("SELECT customer_id FROM customers WHERE user_id=?" , userActive[0].user_id,
+          (err , result)=>{
+              if(err)
+                reject(err)
+              else
+                resolve(result)
+          })
+      })
 
   
       //*create session variables
@@ -194,16 +205,49 @@ const userLogin =  async (req ,res)=>{
       req.session.username = userActive[0].username
       req.session.user_id =  userActive[0].user_id
       req.session.role_id =  userActive[0].role_id
+      req.session.customer_id = customer[0].customer_id
+
+      res.status(200).send({user_id:req.session.user_id, customer_id:req.session.customer_id , login:true})
 
 
-      res.status(200).send({message:"Login in" , login:true})
+
+  }
+
+  const updateUser = async(req , res)=>{
+
 
 
 
   }
 
 
-export default {userSignup , userLogin}
+
+  const signout =  async(req , res)=>{
+      req.session.destroy()
+    
+      res.status(200).send({
+        signout:true
+      })
+  }
+
+
+  const deleteUser = async(req , res)=>{
+
+
+
+  }
+
+
+
+
+
+  const getUserImage =  async (req , res)=>{
+
+
+  }
+
+
+export default {userSignup , userLogin , updateUser , deleteUser , signout , getUserImage }
 
 
 

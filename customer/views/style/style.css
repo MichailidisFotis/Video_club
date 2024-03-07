@@ -292,3 +292,93 @@
 
 
 }
+
+
+
+
+/** CARD STYLE*/
+
+
+.card {
+  width: 320px;
+  background-color: #fff;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, .12);
+}
+
+.card .image {
+  height: 200px;
+}
+
+.card .image img {
+  display: block;
+  width: 100%;
+  height: inherit;
+  object-fit: cover;
+}
+
+.card .content {
+  padding: 2rem 1.8rem;
+}
+
+ .card h4 {
+  margin: 0 0 1rem;
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+}
+
+.card .description {
+  font-size: 1rem;
+  line-height: 1.4rem;
+}
+
+
+#cards-table{
+  margin-left: 11%;
+  gap: 6px;
+}
+
+
+
+@media only screen and (max-width:1400px){
+  
+  #cards-table{
+    margin-left: 1%;
+  }
+}
+
+@media only screen and (max-width:1200px){
+  
+  #cards-table{
+    margin-left: 11%;
+  }
+}
+
+@media only screen and (max-width:1000px){
+  
+  #cards-table{
+    margin-left: 1%;
+    gap: 5px;
+
+  }
+}
+
+
+@media only screen and (max-width:770px){
+  
+  #cards-table{
+    margin-left: 15%;
+  }
+}
+
+
+@media only screen and (max-width:530px){
+  
+  #cards-table{
+    margin-left: 1%;
+    gap: 10px;
+  }
+
+
+}

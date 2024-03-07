@@ -47,9 +47,9 @@ app.use("/notifications" , notificationsRouter)
 
 
 
-app.use(express.static('views'))
+//app.use(express.static('views'))
 
-
+app.use(express.static(__dirname + '/views'));
 
 app.set('view-engine', 'ejs');
 
@@ -74,6 +74,10 @@ app.get("/user/customerProfile" , requireLogin , (req , res)=>{
   res.render("customerProfile.ejs")
 })
 
+
+app.get("/password-changed" , (req , res)=>{
+  res.render('passwordChanged.ejs')
+})
 
 
 

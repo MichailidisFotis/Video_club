@@ -46,7 +46,7 @@ document.getElementById("update_button").addEventListener("click",()=>{
     fetch(url, {
         method: "PATCH",
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "application/json"
         },
         body: JSON.stringify(data)
 
@@ -74,7 +74,7 @@ document.getElementById("update_button").addEventListener("click",()=>{
                     username_input.value =  data.new_username
 
                 }
-                
+
 
               }
             

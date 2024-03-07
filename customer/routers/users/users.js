@@ -32,6 +32,7 @@ router.patch("/update-user-information" , jsonParser,requireLogin , usersControl
 //*route to change user's password
 router.patch("/change-password" ,  jsonParser , requireLogin , usersControler.changePassword)
 
+
 //* route to get User Image 
 router.get("/get-user-image" , requireLogin , usersControler.getUserImage)
 

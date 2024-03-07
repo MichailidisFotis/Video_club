@@ -294,29 +294,79 @@ const updateUser = async(req , res)=>{
   req.session.telephone =  mobile_number
 
 
-  res.status(200).send({message:"You account has been updated" ,
+  res.status(200).send(
+  {
+   message:"You account has been updated" ,
    update:true,
    new_username:req.session.username ,
-  telephone:req.session.telephone })
-
-
-
-
-
-
-
-
-
-
-
-  
+   telephone:req.session.telephone 
+  })
 
 
 
 }
 
 const changePassword =  async(req , res)=>{
-  
+       var new_password =  req.body.new_password
+       var old_password =  req.body.old_password
+       var verify_new_password =  req.body.verify_new_password
+       
+      //* check user's credentials
+
+      const correctCredentials =  await new Promise((resolve, reject) => {
+        connection.query(`SELECT count(*) as number_of_users FROM users WHERE username =?  
+        and user_password =?` ,[req.session.username , md5(old_password)] ,(err , result)=>{
+          if(err)
+            reject(err)
+          else
+            resolve(result[0].number_of_users)
+        })
+      })
+
+
+      if(!correctCredentials)
+          return res.status(400).send({
+            message:"Old password is incorrect",
+            update:false
+          })
+
+      //*check if new password and verification password are the same     
+      if (new_password !== verify_new_password )
+      return res.status(400).send({
+        message:"Old password is incorrect",
+        update:false
+      })
+
+      if (old_password == new_password )
+      return res.status(400).send({
+        message:"Old password and new password must be different",
+        update:false
+      })
+
+
+
+      //*change password
+      await new Promise((resolve, reject) => {
+        connection.query("UPDATE users SET user_password=? WHERE user_id =? " , [md5(new_password) , req.session.user_id] ,
+        (err , result)=>{
+          if(err)
+            reject(err)
+          else  
+            resolve(result)
+        })
+      })
+
+
+       res.status(200).send({
+        message:"Password updated",
+        update:true
+       })
+
+
+      
+
+
+
     
 
 }

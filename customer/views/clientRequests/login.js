@@ -46,7 +46,7 @@ body: JSON.stringify(data)
 .then((data) => {
 
     if(!data.login){
-        console.log("ff")
+        
         const message =  data.message
         messageBox.style.display="block"
         responseLabel.style.color = "#aa0436"

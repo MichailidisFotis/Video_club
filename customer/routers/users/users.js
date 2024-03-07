@@ -27,12 +27,17 @@ router.post("/login" , jsonParser ,usersControler.userLogin);
 router.post("/signout" , requireLogin , usersControler.signout)
 
 //*route to update user's data
-router.patch("/updateUser" , jsonParser,requireLogin ,  usersControler.updateUser)
+router.patch("/update-user-information" , jsonParser,requireLogin , usersControler.updateUser)
 
+//*route to change user's password
+router.patch("/change-password" ,  jsonParser , requireLogin , usersControler.changePassword)
 
 //* route to get User Image 
-router.get("/getImage" , requireLogin , usersControler.getUserImage)
+router.get("/get-user-image" , requireLogin , usersControler.getUserImage)
 
+
+//* route to get User's Information
+router.get("/get-user-information" ,  requireLogin , usersControler.getUserInformation)
 
 
 

@@ -146,7 +146,7 @@
 #registerForm{
   display: flex;
   width: 40%;
-  height: 550px;
+  height: 570px;
   margin-top: 1%;
   background-color: rgb(48, 48, 48);
   
@@ -200,7 +200,7 @@
 }
 
 
-#registerForm input{
+#registerForm input {
  
   height: 40px;
   width: 60%;
@@ -215,6 +215,28 @@
   outline: none;
   transition: 0.30s;
 }
+
+
+#registerForm select {
+ 
+  height: 40px;
+  width: 60%;
+  background-color: rgb(48, 48, 48);
+  /*background: none; */
+  border: 2px solid rgb(97, 96, 96);
+
+  text-align: center;
+  /* font-family: 'Courier New', Courier, monospace; */
+  color:rgb(255, 255, 255); 
+  font-size: large;
+  outline: none;
+  transition: 0.30s;
+}
+
+
+
+
+
 
 #registerForm label{
   color: white;
@@ -264,3 +286,9 @@
 
 
 
+
+#update-form #passwords{
+  display: none;
+
+
+}

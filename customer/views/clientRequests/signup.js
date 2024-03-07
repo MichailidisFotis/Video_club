@@ -14,6 +14,8 @@ function execute() {
   const email = document.getElementById("email").value;
   const surname = document.getElementById("surname").value;
 
+
+
   const responseLabel = document.getElementById("Response");
   const messageBox = document.getElementById("message");
 
@@ -25,7 +27,8 @@ function execute() {
     verify_password: verify_password,
     firstname: firstname,
     surname: surname,
-    email: email
+    email: email,
+
   };
 
   fetch(url, {

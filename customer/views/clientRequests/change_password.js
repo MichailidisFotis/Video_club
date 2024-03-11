@@ -1,37 +1,17 @@
-const responseLabel = document.getElementById("Response");
-const messageBox = document.getElementById("message");
 
-document.getElementById("update_button").addEventListener("click",()=>{
-
-   
-
+document.getElementById("change-password-button").addEventListener("click",()=>{
     
-    var url
-    var data
-
-    
-
-
-
-        
-
-
+    const old_password =document.getElementById("old-password-input").value
+    const new_password = document.getElementById("new-password-input").value
+    const verify_new_password = document.getElementById("verify-new-password-input").value
     
     
-
-        const username = document.getElementById("username-input").value
-        const mobile_number = document.getElementById("mobile-number-input").value
-        const password =  document.getElementById("password-input").value
-
-        url = "/users/update-user-information"
-        data = {
-                username:username,
-                mobile_number:mobile_number,
-                password:password
-        }
-
-        
-    
+    url = "/users/change-password"
+    data =  {
+        old_password:old_password,
+        new_password:new_password,
+        verify_new_password:verify_new_password
+    }
 
     fetch(url, {
         method: "PATCH",
@@ -60,8 +40,7 @@ document.getElementById("update_button").addEventListener("click",()=>{
                 responseLabel.innerHTML='<i class="fa-regular fa-circle-check"></i>  '+message
 
                 
-                    username_span.innerHTML = data.new_username
-                    username_input.value =  data.new_username
+
 
                 
 
@@ -70,13 +49,6 @@ document.getElementById("update_button").addEventListener("click",()=>{
             
 
         })
-
-
-    
-
-
-
-
 
 
 

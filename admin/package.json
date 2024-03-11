@@ -1,5 +1,5 @@
 {
-  "name": "costumer",
+  "name": "admin",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -20,7 +20,6 @@
     "express": "^4.18.2",
     "express-ejs-layouts": "^2.5.1",
     "express-session": "^1.18.0",
-    "gsap": "^3.12.5",
     "joi": "^17.12.1",
     "md5": "^2.3.0",
     "mustache": "^4.2.0",

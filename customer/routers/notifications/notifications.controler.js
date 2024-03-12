@@ -13,7 +13,7 @@ const connection = mysql.createConnection({
   connectionLimit: 10,
   password: "",
   user: "root",
-  database: "video_club",
+  database: "movies_database",
   host: "localhost",
   port: 3306,
 });

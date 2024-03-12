@@ -2,7 +2,7 @@ import mysql from "mysql";
 import { v4 as uuidv4 } from "uuid";
 import validator from "email-validator";
 import md5 from "md5";
-
+import register_user from "./models/register_user.js";
 
 
 
@@ -11,7 +11,7 @@ const connection = mysql.createConnection({
   connectionLimit: 10,
   password: "",
   user: "root",
-  database: "video_club",
+  database: "movies_database",
   host: "localhost",
   port: 3306,
 });
@@ -30,24 +30,33 @@ const userSignup =  async (req , res)=>{
   var surname = req.body.surname;
   var email = req.body.email;
 
-   //*check if all inputs are inserted
-  if (!email)
-  return  res.status(400).send({ message: "Email is required", signup: false });
+   //*check if all inputs are inserted (using Joi)
+  // if (!email)
+  // return  res.status(400).send({ message: "Email is required", signup: false });
 
-  if (!username)
-  return  res.status(400).send({ message: "Username is required", signup: false });
+  // if (!username)
+  // return  res.status(400).send({ message: "Username is required", signup: false });
 
-  if (!firstname)
-  return  res.status(400).send({ message: "Firstname is required", signup: false });
+  // if (!firstname)
+  // return  res.status(400).send({ message: "Firstname is required", signup: false });
 
-  if (!surname)
-  return  res.status(400).send({ message: "Surname is required", signup: false });
+  // if (!surname)
+  // return  res.status(400).send({ message: "Surname is required", signup: false });
 
-  if (!password)
-  return  res.status(400).send({ message: "Password is required", signup: false });
+  // if (!password)
+  // return  res.status(400).send({ message: "Password is required", signup: false });
 
+  
+  const {error} = register_user(req.body)  
 
-
+  if (error) {
+    return res.status(400).send({message:error.details[0].message
+      .replace('_',' ')
+      .replace(/"/g,''),
+      
+      signup:false
+    })
+  }
 
 
   //*check if email form is valid

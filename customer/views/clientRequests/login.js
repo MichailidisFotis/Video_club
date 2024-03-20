@@ -40,8 +40,11 @@ body: JSON.stringify(data)
 })
 .then((response) => {
 
-
-  return response.json();
+  if (response.redirected) {
+    window.location.href=response.url
+  }
+  else
+    return response.json();
 })
 .then((data) => {
 
@@ -53,10 +56,6 @@ body: JSON.stringify(data)
         responseLabel.innerHTML='<i class="fa-solid fa-triangle-exclamation"></i>  '+message
         
     }
-
-    else
-     location.replace("/user/userIndex")
-  
 })
 .catch((error) => {
 

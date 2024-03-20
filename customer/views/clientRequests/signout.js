@@ -19,18 +19,11 @@ function execute() {
         }
         })
         .then((response) => {
-        
-        
-          return response.json();
-        })
-        .then((data) => {
-            if(!data.signout){
-                
-            }
-        
-            else
-                 location.replace("/")
           
+          if (response.redirected) {
+              window.location.href =  response.url
+          }
+        
         })
         .catch((error) => {
         

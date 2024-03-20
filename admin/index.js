@@ -34,7 +34,9 @@ app.use(session({
 }));
 
 
+app.use(express.static(__dirname + '/views'));
 
+app.set('view-engine', 'ejs');
 
 
 // app.use("/users" , usersRouter)
@@ -49,9 +51,7 @@ app.use(session({
 
 //app.use(express.static('views'))
 
-app.use(express.static(__dirname + '/views'));
 
-app.set('view-engine', 'ejs');
 
 
 

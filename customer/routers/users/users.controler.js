@@ -221,8 +221,8 @@ const userLogin =  async (req ,res)=>{
       req.session.surname =  customer[0].surname
       req.session.telephone =  customer[0].telephone
 
-      res.status(200).send({ login:true})
-
+      //res.status(200).send({ login:true})
+      res.redirect("/user/userIndex")
 
 
   }
@@ -386,9 +386,7 @@ const changePassword =  async(req , res)=>{
   const signout =  async(req , res)=>{
       req.session.destroy()
     
-      res.status(200).send({
-        signout:true
-      })
+      res.redirect("/")
   }
 
 

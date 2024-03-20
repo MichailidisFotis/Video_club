@@ -153,6 +153,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  border-radius: 1rem;
   gap: 40px;
   border: 2px solid rgb(58, 58, 58) ;
   box-shadow: 5px 5px 5px ,0 6px 20px 0;
@@ -248,6 +249,8 @@
   background-color: #0d6efd;
   border: 2px solid #0d6efd;
   bottom: 0;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
   margin-bottom: 0px;
   color: whitesmoke;
   transition: 0.30s;

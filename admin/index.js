@@ -4,7 +4,7 @@ import { fileURLToPath } from 'url';
 import {dirname} from "path"
 import dotenv from "dotenv";
 
-// import usersRouter from "./routers/users/users.js"
+ import usersRouter from "./routers/users/users.js"
 // import notificationsRouter from "./routers/notifications/notifications.js";
 
 import requireLogin from "./middlewares/requireLogin.js";
@@ -33,13 +33,13 @@ app.use(session({
       }
 }));
 
-
+app.set('view-engine', 'ejs');
 app.use(express.static(__dirname + '/views'));
 
-app.set('view-engine', 'ejs');
 
 
-// app.use("/users" , usersRouter)
+
+ app.use("/users" , usersRouter)
 // app.use("/notifications" , notificationsRouter)
 
 //app.use("/movies" , moviesRouter)
@@ -55,8 +55,14 @@ app.set('view-engine', 'ejs');
 
 
 
+app.get("/" , (req , res) =>{
+  res.render("index.ejs")
+})
 
 
+app.get("/signup" , (req , res) =>{
+  res.render("signup.ejs")
+})
 
 
 

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    
+
+    <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+    crossorigin="anonymous"
+  />
+
+    <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"
+  ></script>
+
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+  />
+
+<link rel="stylesheet" href="style/style.css">
+
+    <title>Document</title>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Video Club</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div
+        class="collapse navbar-collapse justify-content-end"
+        id="navbarNavDropdown"
+      >
+        <ul class="navbar-nav" style="font-size: medium;gap: 15px;">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="/"><i class="fa-regular fa-user"></i> Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="/signup"><i class="fa-solid fa-user-plus"></i> Sign Up</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+    <div id="message">
+      <h1 id="Response"></h1>
+    </div>
+    <div id="userForm">
+      <div id="registerForm">
+        <p id="label">Insert User Data</p>
+
+          
+          
+          <input type="text" placeholder="Firstname" id="firstname" required />
+
+          <input type="text" placeholder="Surname" id="surname" required />
+
+          <input type="text" placeholder="Username" id="username" required />
+
+          <input type="email" placeholder="Email" id="email" required />
+
+
+
+          <input
+            type="password"
+            placeholder="Password"
+            id="password"
+            required
+          />
+
+          <input
+            type="password"
+            placeholder="Verify password"
+            id="verifyPassword"
+            required
+          />
+
+
+
+
+        <button id="submitButton">Sign up</button>
+      </div>
+    </div>
+
+
+  </body>
+
+  <script src="./clientRequests/signup.js"></script>
+
+
+</html>

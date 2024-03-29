@@ -4,11 +4,11 @@ import { fileURLToPath } from 'url';
 import {dirname} from "path"
 import dotenv from "dotenv";
 
- import usersRouter from "./routers/users/users.js"
+import usersRouter from "./routers/users/users.js"
 // import notificationsRouter from "./routers/notifications/notifications.js";
 
 import requireLogin from "./middlewares/requireLogin.js";
-
+import requireAdmin from "./middlewares/requireAdmin.js";
 
 
 dotenv.config()
@@ -63,6 +63,14 @@ app.get("/" , (req , res) =>{
 app.get("/signup" , (req , res) =>{
   res.render("signup.ejs")
 })
+
+
+
+app.get("/admin/adminIndex" , (req , res)=>{
+  res.render("adminIndex.ejs")
+})
+
+
 
 
 

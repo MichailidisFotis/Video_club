@@ -23,7 +23,7 @@ document.getElementById("update_button").addEventListener("click",()=>{
         const mobile_number = document.getElementById("mobile-number-input").value
         const password =  document.getElementById("password-input").value
 
-        url = "/users/update-user-information"
+        url = "/customers/update-customer-information"
         data = {
                 username:username,
                 mobile_number:mobile_number,

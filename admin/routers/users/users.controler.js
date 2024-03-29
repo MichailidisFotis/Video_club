@@ -19,6 +19,17 @@ const connection = mysql.createConnection({
   
 
 const userSignup = async(req ,res)=>{
+  var user_id = uuidv4();
+  var customer_id = uuidv4();
+  var username = req.body.username;
+  var password = req.body.user_password;
+  var verify_password = req.body.verify_password;
+  var firstname = req.body.firstname;
+  var surname = req.body.surname;
+  var email = req.body.email;
+
+  
+
 
 }
 

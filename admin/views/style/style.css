@@ -293,4 +293,99 @@ body {
   
   } */
   
+
+/** TABLE  STYLE*/
+
+
+.styled-table {
   
+  border-collapse: collapse;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  margin-top: 5%;
+  margin-left: 10%;  
+  box-shadow: 10px 0 20px rgba(0, 0, 0, 0.15);
+  font-size: 16px;
+  height: fit-content;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+  width: 80%;
+  border-radius: 1rem;
+  
+  
+
+}
+
+.styled-table thead th:first-child{
+  border-top-left-radius: 1rem;
+}
+
+.styled-table thead th:last-child{
+  border-top-right-radius: 1rem;
+}
+
+
+.styled-table tbody tr:hover{
+
+  background-color:#dddddd;
+}
+
+ .styled-table .actions-buttons{
+  align-items: start;
+  padding: 0;
+}
+
+.styled-table .actions-buttons i:hover{
+  color: rgb(70, 70, 70);
+}
+
+
+
+
+
+
+.styled-table th{
+  text-align: center;
+  
+}
+
+.styled-table thead tr {
+  background-color: rgb(33, 37, 41);
+  color: #ffffff;
+  text-align: left;
+}
+
+.styled-table input{
+  border: 1px rgb(33, 37, 41) solid ;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+}
+
+
+
+
+.styled-table tbody tr{
+  background-color: #f3f3f3;
+}
+
+
+.styled-table tbody tr:last-child td:first-child{
+  border-bottom-left-radius: 1rem;
+ 
+  /* border-bottom-right-radius: 1rem ; */
+}
+
+.styled-table tbody tr:last-child td:last-child{
+  border-bottom-right-radius: 1rem;
+}
+
+
+
+.styled-table tbody tr.active-row {
+  font-weight: bold;
+  color: #009879;
+}
+

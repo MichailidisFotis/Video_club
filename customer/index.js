@@ -6,6 +6,8 @@ import dotenv from "dotenv";
 
 import usersRouter from "./routers/users/users.js"
 import notificationsRouter from "./routers/notifications/notifications.js";
+import customerRouter from "./routers/customer/customer.js"
+
 
 import requireLogin from "./middlewares/requireLogin.js";
 
@@ -39,7 +41,7 @@ app.use(express.static(__dirname + '/views'));
 
 app.use("/users" , usersRouter)
 app.use("/notifications" , notificationsRouter)
-
+app.use("/customers" , customerRouter)
 //app.use("/movies" , moviesRouter)
 //app.use("/orders" , ordersRouter)
 //app.use("/cart" , cartRouter)
@@ -65,12 +67,12 @@ app.get("/signup" , (req , res) =>{
 
 
 
-app.get("/user/userIndex" , requireLogin , (req , res)=>{
-   res.render("userIndex.ejs")
+app.get("/customer/customerIndex" , requireLogin , (req , res)=>{
+   res.render("customerIndex.ejs")
 })
 
 
-app.get("/user/customerProfile" , requireLogin , (req , res)=>{
+app.get("/customer/customerProfile" , requireLogin , (req , res)=>{
   res.render("customerProfile.ejs")
 })
 

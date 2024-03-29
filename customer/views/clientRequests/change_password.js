@@ -6,7 +6,7 @@ document.getElementById("change-password-button").addEventListener("click",()=>{
     const verify_new_password = document.getElementById("verify-new-password-input").value
     
     
-    url = "/users/change-password"
+    url = "/customers/change-password"
     data =  {
         old_password:old_password,
         new_password:new_password,

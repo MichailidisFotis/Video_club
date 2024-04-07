@@ -18,11 +18,12 @@ const router = express.Router();
 
 
 
-router.post("/signup" , usersControler.userSignup);
+router.post("/signup" ,jsonParser , usersControler.userSignup);
 
 
-router.post("/login"  , usersControler.userLogin)
+router.post("/login" ,jsonParser , usersControler.userLogin)
 
+router.post("/signout" , usersControler.signout)
 
 
 export default router

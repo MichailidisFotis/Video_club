@@ -302,9 +302,9 @@ body {
   border-collapse: collapse;
   font-size: 0.9em;
   font-family: sans-serif;
-  margin-top: 5%;
+  /* margin-top: 5%; */
   margin-left: 10%;  
-  box-shadow: 10px 0 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 1px 0px 0px 0px rgba(0, 0, 0, 0.15);
   font-size: 16px;
   height: fit-content;
   font-family:Verdana, Geneva, Tahoma, sans-serif;
@@ -317,11 +317,11 @@ body {
 }
 
 .styled-table thead th:first-child{
-  border-top-left-radius: 1rem;
+  /* border-top-left-radius: 1rem; */
 }
 
 .styled-table thead th:last-child{
-  border-top-right-radius: 1rem;
+  /* border-top-right-radius: 1rem; */
 }
 
 
@@ -335,9 +335,9 @@ body {
   padding: 0;
 }
 
-.styled-table .actions-buttons i:hover{
+/* .styled-table .actions-buttons i:hover{
   color: rgb(70, 70, 70);
-}
+} */
 
 
 
@@ -369,6 +369,7 @@ body {
 
 .styled-table tbody tr{
   background-color: #f3f3f3;
+  font-size: 16px;
 }
 
 
@@ -389,3 +390,84 @@ body {
   color: #009879;
 }
 
+.styled-table .fa-trash{
+  color: rgb(220, 58, 58);
+}
+
+.styled-table .fa-bell{
+  color: rgb(212, 175, 55);
+}
+
+.styled-table i{
+  
+  font-size: 17px;
+}
+
+.styled-table .fa-trash:hover{
+  color: rgb(244, 67, 67);
+}
+
+.styled-table .fa-bell:hover{
+  color: rgb(236, 195, 62);
+}
+
+
+.info-table{
+  
+  gap: 0px;
+  margin-top: 5%;
+}
+
+.search-input{
+  
+  margin-left: 10%;
+  margin-bottom: 0%;
+  width: 80%;
+  height: 40px;
+  background-color: rgb(33, 37, 41);
+  border-top-left-radius:1rem;
+  border-top-right-radius: 1rem;  
+  
+  
+}
+
+.search-input input{
+  border-top-left-radius:1rem;
+  border-top-right-radius: 1rem;
+  border-bottom-left-radius:1rem;
+  border-bottom-right-radius: 1rem;
+  font-size: 15px;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  border: 1px solid rgb(100, 100, 100);
+  color: whitesmoke;
+  text-align:start;
+  padding-left: 10px;
+  background-color: rgb(49, 55, 61);
+  width: 50%;
+  margin-left: 16px;
+  margin-top: 9px;
+  height: 30px;  
+}
+
+
+.search-input input::placeholder{
+  text-align: center;
+}
+
+
+.search-input input:focus::placeholder{
+  color: transparent;
+}
+
+
+
+.search-input input:focus{
+  outline: none;
+}
+
+.search-input i{
+  width: 100%;
+  color: whitesmoke;
+  margin-right: 3px;
+  margin-left: 25%;
+}

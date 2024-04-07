@@ -66,7 +66,7 @@ app.get("/signup" , (req , res) =>{
 
 
 
-app.get("/admin/adminIndex" , (req , res)=>{
+app.get("/admin/adminIndex" ,requireAdmin , requireLogin , (req , res)=>{
   res.render("adminIndex.ejs")
 })
 

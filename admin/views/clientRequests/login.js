@@ -27,7 +27,7 @@ const url = "/users/login";
 
 const data = {
 username: username,
-user_password: password
+password: password
 };
 
 fetch(url, {

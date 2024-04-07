@@ -22,6 +22,7 @@ document.getElementById("submitButton").addEventListener("click", () => {
     const url = "/users/signup";
   
     const data = {
+
       username: username,
       user_password: password,
       verify_password: verify_password,
@@ -30,6 +31,8 @@ document.getElementById("submitButton").addEventListener("click", () => {
       email: email
   
     };
+
+    console.table(data)
   
     fetch(url, {
       method: "POST",

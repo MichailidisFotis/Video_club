@@ -262,6 +262,3 @@ const userLogin =  async (req ,res)=>{
 export default {userSignup , userLogin ,
    signout ,  getUserInformation
    }
-
-
-

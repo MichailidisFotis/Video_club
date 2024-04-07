@@ -33,7 +33,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
-        <a class="navbar-brand" href="/user/userIndex">Video Club - Admin</a>
+        <a class="navbar-brand" href="/admin/adminIndex">Video Club - Admin</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -53,36 +53,32 @@
             
             <li class="nav-item">
               
-              <a class="nav-link" aria-current="page" href="/user/userIndex">
+              <a class="nav-link" aria-current="page" href="/admin/adminIndex">
                 <i class="fa-solid fa-house" ></i>    
                 </a
               >
             </li>
-            <a class="nav-link" aria-current="page" href="/user/userCard">
-              <i class="fa-solid fa-credit-card"></i> My Cards    
+            <a class="nav-link" aria-current="page" href="/admin/">
+              <i class="fa-solid fa-film"></i> Movies    
               </a
             >
           </li>
             
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="/user/customerOrders"
-                ><i class="fa-solid fa-list-check"></i> My Orders</a
+              <a class="nav-link" aria-current="page" href="/admin"
+                ><i class="fa-solid fa-list-check"></i> Orders </a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link"  aria-current="page" href="/user/notifications" 
-                ><i class="fa-solid fa-bell"></i> <h7 id="notifications number"> 0</h7></a
+              <a class="nav-link" aria-current="page" href="/admin"
+                ><i class="fa-solid fa-credit-card"></i> Cards </a
               >
             </li>
-            <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="/user/customerShoppingCart"
-                > <i class="fa-solid fa-cart-shopping"></i> 0</a
-              >
-            </li>
+            
 
             <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="/user/customerProfile"
-                  > <i class="fa-regular fa-user"></i>  My profile</a
+                <a class="nav-link" aria-current="page" href="/admin"
+                  > <i class="fa-regular fa-user"></i> Account</a
                 >
               </li>
             <li style="cursor: default;" class="nav-item">
@@ -93,59 +89,66 @@
       </div>
     </nav>
   
+      <div class="info-table">
 
+             <div class="search-input">
+              <i class="fa fa-search" aria-hidden="true"><input onkeyup="searchFunction()" type="text" id="myInput" placeholder="Search User..."></i> 
+            </div>
+          
+          <table id="styled-table" class="styled-table">
 
-
-      
-      <table class="styled-table">
-        <thead>
-            <tr>
-                <th></th>
-                <th>Firstname</th>
-                <th>Surname</th>
-                <th>Username</th>
-                <th>Role</th>
-                <th>State</th>
-                <th></th>
-              </tr>
-        </thead>
-        <tbody>
-            
-            <tr>
-                <td>
-                  <div class="form-check">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Firstname</th>
+                    <th>Surname</th>
+                    <th>Username</th>
+                    <th>Role</th>
+                    <th>State</th>
+                    <th></th>
+                  </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>
+                      <!-- <div class="form-check">
+                        <input class="form-check-input"  type="checkbox" value="" id="defaultCheck1">
+                      </div> -->
+                    </td>
+                    <td>Fotis</td>
+                    <td>Michailidis</td>
+                    <td>icsd19138</td>
+                    <td>Customer</td>
+                    <td>Active</td>
+                    <td class="actions-buttons"><i class="fa-solid fa-bell"></i> <i class="fa-solid fa-trash"></i></td>
+                </tr>
+                <tr>
+                  <td>                  
+                  <!-- <div class="form-check">
                     <input class="form-check-input"  type="checkbox" value="" id="defaultCheck1">
-                  </div>
+                  </div> -->
                 </td>
-                <td>Fotis</td>
-                <td>Michailidis</td>
-                <td>icsd19138</td>
-                <td>Customer</td>
-                <td>Active</td>
-                <td class="actions-buttons"><i class="fa-solid fa-bell"></i> <i class="fa-solid fa-trash"></i></td>
-            </tr>
-            <tr>
-              <td>                  
-              <div class="form-check">
-                <input class="form-check-input"  type="checkbox" value="" id="defaultCheck1">
-              </div>
-            </td>
-              <td>Konstantinos</td>
-              <td>Manolakos</td>
-              <td>icsd19999</td>
-              <td>Employee</td>
-              <td>Inactive</td>
-              <td class="actions-buttons" ><i class="fa-solid fa-bell"></i> <i class="fa-solid fa-trash"></i></td>
-          </tr>
+                  <td>Konstantinos</td>
+                  <td>Manolakos</td>
+                  <td>icsd19999</td>
+                  <td>Employee</td>
+                  <td>Inactive</td>
+                  <td class="actions-buttons" ><i class="fa-solid fa-bell"></i> <i class="fa-solid fa-trash"></i></td>
+              </tr>
+    
+    
+                <!-- and so on... -->
+            </tbody>
+        </table>
+    
+    
+    
+    
 
+      </div>
 
-            <!-- and so on... -->
-        </tbody>
-    </table>
-
-
-
-
+   
 
     
     
@@ -155,6 +158,6 @@
 
   </body>
 
-
+  <script src="/frontend/dynamic_search.js"></script>
 
 </html>

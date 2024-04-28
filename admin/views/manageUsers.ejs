@@ -20,11 +20,6 @@
     crossorigin="anonymous"
   ></script>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"> </script>  
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
-
-
   <link
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
@@ -101,127 +96,76 @@
         </div>
       </div>
     </nav>
+  
+      <div class="info-table">
+
+             <div class="search-input">
+              <i class="fa fa-search" aria-hidden="true"><input onkeyup="searchFunction()" type="text" id="myInput" placeholder="Search User..."></i> 
+            </div>
+          
+          <table id="styled-table" class="styled-table">
+
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Firstname</th>
+                    <th>Surname</th>
+                    <th>Username</th>
+                    <th>Role</th>
+                    <th>State</th>
+                    <th></th>
+                  </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>
+                      <!-- <div class="form-check">
+                        <input class="form-check-input"  type="checkbox" value="" id="defaultCheck1">
+                      </div> -->
+                    </td>
+                    <td>Fotis</td>
+                    <td>Michailidis</td>
+                    <td>icsd19138</td>
+                    <td>Customer</td>
+                    <td>Active</td>
+                    <td class="actions-buttons"><i class="fa-solid fa-bell"></i> <i class="fa-solid fa-trash"></i></td>
+                </tr>
+                <tr>
+                  <td>                  
+                  <!-- <div class="form-check">
+                    <input class="form-check-input"  type="checkbox" value="" id="defaultCheck1">
+                  </div> -->
+                </td>
+                  <td>Konstantinos</td>
+                  <td>Manolakos</td>
+                  <td>icsd19999</td>
+                  <td>Employee</td>
+                  <td>Inactive</td>
+                  <td class="actions-buttons" ><i class="fa-solid fa-bell"></i> <i class="fa-solid fa-trash"></i></td>
+              </tr>
+    
+    
+                <!-- and so on... -->
+            </tbody>
+        </table>
+    
+    
+    
     
 
-    <div class="container" style="width: 40%; margin-left: 6%; margin-top:10px ;">  
+      </div>
 
-      <div id="chartContainer" style="height: 370px; width: 60%;"></div> 
+   
 
+    
+    
 
-    </div>  
 
 
 
   </body>
 
-  <script>  
+  <script src="/frontend/dynamic_search.js"></script>
 
-window.onload = function() {
-
-var chart = new CanvasJS.Chart("chartContainer", {       
-	animationEnabled: true,
-	title: {
-		text: "Orders Per Month"
-	},
-	axisX:{
-		minimum: 5,
-		maximum: 95
-	},
-	data: [{
-		type: "column",
-		dataPoints: [
-			{ x: 10, y: 71 },
-			{ x: 20, y: 55 },
-			{ x: 30, y: 50 },
-			{ x: 40, y: 65 },
-			{ x: 50, y: 95 },
-			{ x: 60, y: 68 },
-			{ x: 70, y: 28 },
-			{ x: 80, y: 34 },
-			{ x: 90, y: 14 }
-		]
-	}]
-});
-chart.render();
-
-var xSnapDistance = chart.axisX[0].convertPixelToValue(chart.get("dataPointWidth")) / 2;
-var ySnapDistance = 3;
-
-var xValue, yValue;
-
-var mouseDown = false;
-var selected = null;
-var changeCursor = false;
-
-var timerId = null;
-
-function getPosition(e) {
-	var parentOffset = $("#chartContainer > .canvasjs-chart-container").offset();          	
-	var relX = e.pageX - parentOffset.left;
-	var relY = e.pageY - parentOffset.top;
-	xValue = Math.round(chart.axisX[0].convertPixelToValue(relX));
-	yValue = Math.round(chart.axisY[0].convertPixelToValue(relY));
-}
-
-function searchDataPoint() {
-	var dps = chart.data[0].dataPoints;
-	for(var i = 0; i < dps.length; i++ ) {
-		if( (xValue >= dps[i].x - xSnapDistance && xValue <= dps[i].x + xSnapDistance) && (yValue >= dps[i].y - ySnapDistance && yValue <= dps[i].y + ySnapDistance) ) 
-		{
-			if(mouseDown) {
-				selected = i;
-				break;
-			} else {
-				changeCursor = true;
-				break; 
-			}
-		} else {
-			selected = null;
-			changeCursor = false;
-		}
-	}
-}
-
-jQuery("#chartContainer > .canvasjs-chart-container").on({
-	mousedown: function(e) {
-		mouseDown = true;
-		getPosition(e);  
-		searchDataPoint();
-	},
-	mousemove: function(e) {
-		getPosition(e);
-		if(mouseDown) {
-			clearTimeout(timerId);
-			timerId = setTimeout(function(){
-				if(selected != null) {
-					chart.data[0].dataPoints[selected].y = yValue;
-					chart.render();
-				}   
-			}, 0);
-		}
-		else {
-			searchDataPoint();
-			if(changeCursor) {
-				chart.data[0].set("cursor", "n-resize");
-			} else {
-				chart.data[0].set("cursor", "default");
-			}
-		}
-	},
-	mouseup: function(e) {
-		if(selected != null) {
-			chart.data[0].dataPoints[selected].y = yValue;
-			chart.render();
-			mouseDown = false;
-		}
-	}
-});
-
-}
-
-
-
-</script>
-
-
-</html>
+</html> 

@@ -6,6 +6,6 @@ const app  = makeIndex
 
 
 
-const PORT = process.env.PORT
+const PORT = 3333
 
 app.listen(PORT,()=>console.log('Listening to port :'+PORT))

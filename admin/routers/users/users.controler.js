@@ -20,7 +20,7 @@ const connection = mysql.createConnection({
 
 const userSignup = async(req ,res)=>{
 
-  console.log(req.body)
+  console.table(req.body)
 
   var user_id = uuidv4();
   var admin_id = uuidv4();

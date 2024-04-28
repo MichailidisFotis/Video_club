@@ -471,3 +471,13 @@ body {
   margin-right: 3px;
   margin-left: 25%;
 }
+
+
+
+
+/** Chart Styles */
+
+canvas{
+    border-radius: 1rem;
+}
+

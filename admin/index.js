@@ -71,6 +71,13 @@ app.get("/admin/adminIndex" ,requireAdmin , requireLogin , (req , res)=>{
 })
 
 
+app.get("/admin/manageUsers" , requireAdmin , requireLogin , (req , res)=>{
+
+  res.render("manageUsers.ejs")
+
+
+})
+
 
 
 
